@@ -1,4 +1,5 @@
 package com.abc.app.sanghoapp;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -19,7 +20,6 @@ public class HomeActivity extends Activity implements View.OnClickListener {
         bt_community = (Button) findViewById(R.id.bt_community);
         bt_guide = (Button) findViewById(R.id.bt_guide);
         bt_log_out = (Button) findViewById(R.id.bt_log_out);
-
         bt_host_regist.setOnClickListener(this);
         bt_host_list.setOnClickListener(this);
         bt_book.setOnClickListener(this);
@@ -32,7 +32,7 @@ public class HomeActivity extends Activity implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.bt_host_regist :
-                startActivity(new Intent(this,BookingActivity.class));
+                startActivity(new Intent(this,HostingMainActivity.class));
                 break;
             case R.id.bt_host_list :
                 startActivity(new Intent(this,BookingActivity.class));

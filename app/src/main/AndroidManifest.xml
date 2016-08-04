@@ -18,7 +18,12 @@
             </intent-filter>
         </activity>
         <activity android:name=".BookingListActivity" />
-        <activity android:name=".BookingActivity"></activity>
+        <activity android:name=".BookingActivity" />
+        <activity android:name=".CityListActivity" />
+        <activity android:name=".DetailActivity" />
+        <activity android:name=".ImageActivity" />
+        <activity android:name=".HostingMainActivity" />
+        <activity android:name=".HostingActivity"></activity>
     </application>
 
 </manifest>

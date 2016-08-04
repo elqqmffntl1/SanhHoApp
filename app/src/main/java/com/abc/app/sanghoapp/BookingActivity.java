@@ -39,7 +39,7 @@ public class BookingActivity extends Activity implements View.OnClickListener{
                 startActivity(new Intent(this,BookingActivity.class));
                 break;
             case R.id.bt_reset:
-                startActivity(new Intent(this,BookingActivity.class));
+                startActivity(new Intent(this,HomeActivity.class));
                 break;
         }
     }
