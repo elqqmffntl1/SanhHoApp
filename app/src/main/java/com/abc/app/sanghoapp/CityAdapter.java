@@ -63,6 +63,7 @@ public class CityAdapter extends BaseAdapter{
         }else{
             holder =(ViewHolder) v.getTag();
         }
+        System.out.print("??" + list.get(i).getAddress());
         holder.ivphoto.setImageResource(imgs[i]);
         holder.tvaddr.setText(list.get(i).getAddress());
         holder.tvprice.setText(list.get(i).getPrice());

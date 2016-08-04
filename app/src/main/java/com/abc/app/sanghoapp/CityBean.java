@@ -105,5 +105,21 @@ public class CityBean {
         this.pw = pw;
     }
 
-
+    @Override
+    public String toString() {
+        return "CityBean{" +
+                "room=" + room +
+                ", toilet=" + toilet +
+                ", bed=" + bed +
+                ", count=" + count +
+                ", address='" + address + '\'' +
+                ", explain='" + explain + '\'' +
+                ", price='" + price + '\'' +
+                ", facilities='" + facilities + '\'' +
+                ", houseType='" + houseType + '\'' +
+                ", photo='" + photo + '\'' +
+                ", id='" + id + '\'' +
+                ", pw='" + pw + '\'' +
+                '}';
+    }
 }

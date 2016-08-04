@@ -14,7 +14,7 @@ public class HostingMainActivity extends Activity implements View.OnClickListene
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.activity_hosting_main);
 
         bt_hosting = (Button) findViewById(R.id.bt_hosting);
         bt_img = (Button) findViewById(R.id.bt_img);

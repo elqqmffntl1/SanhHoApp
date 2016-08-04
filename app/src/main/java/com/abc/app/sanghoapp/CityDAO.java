@@ -87,25 +87,31 @@ public class CityDAO extends SQLiteOpenHelper {
 
     public CityBean findByAddr(String addr) {
         String sql = "select "
-                + String.format("%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s ", address, explain, price, facilities, house_type, photo, room, toilet, bed, count)
-                + String.format(" from " + TABLE_NAME + " where id = '%s' ;", addr);
+                + String.format("%s,%s,%s,%s,%s,%s,%s,%s,%s,%s ", address, explain, price, facilities, house_type, photo, room, toilet, bed, count)
+                + String.format("from " + TABLE_NAME + " where address = '%s' ;", addr);
         CityBean temp = null;
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery(sql, null);
-        if (cursor != null) {
-            Log.d("DAO FIND_BY_ADDR", "ADDR 조회 성공 !!");
-            if (cursor.moveToFirst()) {
-                temp = new CityBean();
-                temp.setAddress(cursor.getString(0));
-                temp.setExplain(cursor.getString(1));
-                temp.setHouseType(cursor.getString(2));
-                temp.setPrice(cursor.getString(3));
-                temp.setFacilities(cursor.getString(4));
-                temp.setBed(Integer.parseInt(cursor.getString(5)));
-                temp.setRoom(Integer.parseInt(cursor.getString(6)));
-            }
+        Cursor cursor = db.rawQuery(sql,null);
 
-        }
+        Log.d("DAO FIND_BY_ADDR", "ADDR 조회 성공 !!");
+        System.out.println(cursor.getPosition()+"포지션");
+        if(cursor!=null) {
+            cursor.moveToFirst();
+            System.out.println(cursor.getPosition()+"포지션2");
+        }do {
+            temp = new CityBean();
+            temp.setAddress(cursor.getString(cursor.getColumnIndex(address)));
+            temp.setExplain(cursor.getString(1));
+            temp.setPrice(cursor.getString(2));
+            temp.setFacilities(cursor.getString(3));
+            temp.setHouseType(cursor.getString(4));
+            temp.setPhoto(cursor.getString(5));
+            temp.setRoom(Integer.parseInt(cursor.getString(6)));
+            temp.setToilet(Integer.parseInt(cursor.getString(7)));
+            temp.setBed(Integer.parseInt(cursor.getString(8)));
+            temp.setCount(Integer.parseInt(cursor.getString(9)));
+        }while(cursor.moveToNext());
+
         return temp;
     }
 

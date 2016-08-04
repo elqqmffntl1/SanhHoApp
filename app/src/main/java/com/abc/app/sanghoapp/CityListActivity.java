@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -19,7 +18,7 @@ public class CityListActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_city_list);
-        service = (CityService) new CityServiceImpl(this.getApplicationContext());
+        service = new CityServiceImpl(this.getApplicationContext());
         ArrayList<CityBean> list = service.list();
         lv_Citylist = (ListView) findViewById(R.id.lv_Citylist);
         lv_Citylist.setAdapter(new CityAdapter(this,list));
@@ -27,11 +26,10 @@ public class CityListActivity extends Activity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Object o = lv_Citylist.getItemAtPosition(position);
-                CityBean City = (CityBean) o;
-                Toast.makeText(CityListActivity.this,"선택한이름:"+City.getId(),Toast.LENGTH_LONG).show();
-
+                CityBean city = (CityBean) o;
+                System.out.println("list activity : " + city.getAddress());
                 Intent intent = new Intent(CityListActivity.this,DetailActivity.class);
-                intent.putExtra("Address",City.getAddress());
+                intent.putExtra("address",city.getAddress());
                 startActivity(intent);
 
             }
