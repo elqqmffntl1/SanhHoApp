@@ -8,12 +8,12 @@ import java.util.List;
  * Created by hb2002 on 2016-08-03.
  */
 public class BookServiceImpl implements BookService{
-    BookDAO dao = BookDAO.getInstance();
+    BookDAO dao;
     BookCityBean bcSession;
     BookBean bBean = new BookBean();
 
-    public BookServiceImpl(Context applicationContext) {
-
+    public BookServiceImpl(Context context) {
+        dao = new BookDAO(context);
     }
 
     public BookCityBean getbcSession() {
@@ -28,9 +28,10 @@ public class BookServiceImpl implements BookService{
     public void cancel(BookBean bBean) {
         dao.cancel(bBean);
     }
+
     @Override
-    public void regist(BookCityBean mBean) {
-        dao.regist(mBean);
+    public void regist(BookCityBean bean) {
+
     }
 
     @Override
@@ -50,6 +51,6 @@ public class BookServiceImpl implements BookService{
     }
     @Override
     public List<?> list(String id) {
-        return dao.list(id);
+        return null;
     }
 }

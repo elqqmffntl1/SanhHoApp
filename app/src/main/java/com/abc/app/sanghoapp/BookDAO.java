@@ -1,49 +1,93 @@
 package com.abc.app.sanghoapp;
 
-import java.util.List;
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
-/**
- * Created by hb2002 on 2016-08-03.
- */
-public class BookDAO {
+public class BookDAO extends SQLiteOpenHelper {
+    public static final String TABLE_NAME ="book";
+    public static final String SEQ2 ="seq2";
+    public static final String ADDRESS ="address";
+    public static final String CHECK_IN ="check_in";
+    public static final String CHECK_OUT ="check_out";
+    public static final String COUNT ="count";
+    public static final String ID ="ID";
 
-    private static BookDAO instance = new BookDAO();
-
-    static BookDAO getInstance() {
-        return instance;
+    public BookDAO(Context context) {
+        super(context, "hanbit", null, 1);
+        Log.d("DB 생성 체크","======================여기가지 집입");
+        this.getWritableDatabase();
     }
-    private BookDAO() {
+
+    @Override
+    public void onCreate(SQLiteDatabase db) {
+        Log.d("DB 테이블  생성 체크2", "======================여기가지 집입");
+        String sql = "create table if not exists "
+                + TABLE_NAME
+                + "("
+                + SEQ2 + " integer primary key autoincrement,"
+                + ADDRESS + " text,"
+                + CHECK_IN + " text,"
+                + CHECK_OUT + " text,"
+                + COUNT + " text,"
+                + ID + " text );";
+        db.execSQL(sql);
+        Log.d("DB 테이블  생성 체크3", "================실행======여기가지 집입");
     }
 
-    public int regist(BookCityBean bean) {
-        int result = 0;
-        String sql = "insert into book_member(seq2,address,check_in,check_out,explain,"
-                + "review,price,option2,local2,facilities,"
-                + "policy,house_type,language,photo,room,"
-                + "toilet,bed,count,id) "
-                + "values(seq2.nextval,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-
-        return result;
+    @Override
+    public void onUpgrade(SQLiteDatabase db, int i, int i1) {
+        String sql = "drop table if exist" + TABLE_NAME;
     }
+
     public int book(BookBean bBean) {
         int result = 0;
-        String sql = "insert into book(ADDRESS, CHECK_IN, CHECK_OUT, COUNT, ID) values(?,?,?,?,?)";
-
+        String sql = "insert into "
+                +TABLE_NAME
+                +"("
+                +String.format("%s,%s,%s,%s,%s,%s) "
+                ,SEQ2,ADDRESS, CHECK_IN, CHECK_OUT, COUNT, ID)
+                +String.format("values('%s','%s','%s','%s','%s','%s');"
+                ,"seq2.nextval"
+                ,bBean.getAddress()
+                ,bBean.getCheckIn()
+                ,bBean.getCheckOut()
+                ,bBean.getCount()
+                ,bBean.getId()
+        );
+        Log.d(bBean.getId(),"들어온값");
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL(sql);
         return result;
     }
 
 
     public int cancel(BookBean bBean) {
-        String sql = "delete from book where id=?";
         int result = 0;
-
+        String sql = "delete from "
+                + TABLE_NAME
+                + String.format(" where seq2=%s", bBean.getSeq2());
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL(sql);
         return result;
     }
 
-    public List<?> list(String id) {
-        String sql = "select * from book_member where id = ?";
+    public int update_book(BookBean bBean) {
+        int result = 0;
+        String sql = "update into "
+                +TABLE_NAME
+                +"set "
+                +String.format("CHECK_IN=%s, CHECK_OUT=%s, COUNT=%s where seq2 = %s;"
+                ,bBean.getCheckIn()
+                ,bBean.getCheckOut()
+                ,bBean.getCount()
+                ,bBean.getSeq2()
 
-        return null;
+        );
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL(sql);
+        return result;
     }
 
 
