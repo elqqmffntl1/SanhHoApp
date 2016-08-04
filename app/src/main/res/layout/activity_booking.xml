@@ -2,12 +2,16 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="#454242"
+    >
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="예  약"
         android:gravity="center_horizontal"
+        android:background="#454242"
+        android:textColor="#ffffff"
         android:textSize="50dp"/>
     <LinearLayout
         android:layout_width="match_parent"
@@ -19,6 +23,7 @@
             android:layout_height="wrap_content"
             android:textSize="20dp"
             android:layout_weight="0.6"
+            android:textColor="#ffffff"
             android:text="호스팅 주소:"/>
         <EditText
             android:layout_width="0dp"
@@ -37,6 +42,7 @@
             android:layout_height="wrap_content"
             android:textSize="20dp"
             android:layout_weight="0.6"
+            android:textColor="#ffffff"
             android:text="체크인 날짜:"/>
         <EditText
             android:layout_width="0dp"
@@ -54,6 +60,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:textSize="20dp"
+            android:textColor="#ffffff"
             android:text="체크아웃 날짜:"
             android:layout_weight="0.8"/>
         <EditText
@@ -73,6 +80,7 @@
             android:layout_height="wrap_content"
             android:textSize="20dp"
             android:layout_weight="0.7"
+            android:textColor="#ffffff"
             android:text="숙박인원:"/>
         <EditText
             android:layout_width="0dp"
@@ -86,13 +94,18 @@
         android:layout_height="wrap_content"
         android:text="예약"
         android:textSize="20dp"
+        android:background="#454242"
+        android:textColor="#ffffff"
         android:id="@+id/bt_booking"
+
         />
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="취소"
         android:textSize="20dp"
+        android:background="#454242"
+        android:textColor="#ffffff"
         android:id="@+id/bt_reset"/>
     <ImageView
         android:layout_width="400dp"
