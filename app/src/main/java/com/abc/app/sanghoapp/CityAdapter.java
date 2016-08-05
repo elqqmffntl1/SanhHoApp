@@ -18,15 +18,15 @@ public class CityAdapter extends BaseAdapter{
     LayoutInflater inflater;
 
     int[] imgs={
-            R.drawable.host15,
-            R.drawable.host16,
-            R.drawable.host13,
-            R.drawable.host14,
-            R.drawable.host17,
-            R.drawable.host18,
-            R.drawable.host19,
-            R.drawable.host20l,
-            R.drawable.host12
+            R.drawable.host05,
+            R.drawable.host06,
+            R.drawable.host_03,
+            R.drawable.host04,
+            R.drawable.host07,
+            R.drawable.host08,
+            R.drawable.host09,
+            R.drawable.host10,
+            R.drawable.host_02
     };
 
     public CityAdapter(Context context, ArrayList<CityBean>list) {

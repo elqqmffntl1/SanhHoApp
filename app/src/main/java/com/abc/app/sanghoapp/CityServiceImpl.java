@@ -4,6 +4,7 @@ package com.abc.app.sanghoapp;
  * Created by hb2002 on 2016-08-04.
  */
 import android.content.Context;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -42,6 +43,7 @@ public class CityServiceImpl implements CityService{
     }
 
     public CityBean findByAddr(String id) {
+        Log.d("?","??????????????????");
         return dao.findByAddr(id);
     }
 

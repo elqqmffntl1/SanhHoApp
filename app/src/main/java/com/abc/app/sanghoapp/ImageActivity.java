@@ -29,7 +29,7 @@ public class ImageActivity extends Activity implements View.OnClickListener{
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.bt_prev:
-                iv_mid.setImageResource(R.drawable.han);
+                iv_mid.setImageResource(R.drawable.nombani);
                 bt_prev.setVisibility(View.INVISIBLE);
                 bt_next.setVisibility(View.VISIBLE);
                 break;
