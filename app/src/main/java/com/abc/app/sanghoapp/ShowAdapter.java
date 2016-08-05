@@ -6,10 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-/**
- * Created by hb2003 on 2016-08-04.
- */
-public class ShowAdapter extends PagerAdapter{
+public class ShowAdapter extends PagerAdapter {
+
     LayoutInflater inflater;
 
     public ShowAdapter(LayoutInflater inflater) {
@@ -18,12 +16,12 @@ public class ShowAdapter extends PagerAdapter{
     @Override
     public int getCount() {
         // TODO Auto-generated method stub
-        return 9;
+        return 10;
     }
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
         View view=null;
-        view= inflater.inflate(R.layout.activity_show_adapter, null);
+        view= inflater.inflate(R.layout.viewpager_showeview, null);
         ImageView img= (ImageView)view.findViewById(R.id.img_viewpager_showimage);
 
         img.setImageResource(R.drawable.host_01+position);

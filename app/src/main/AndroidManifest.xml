@@ -24,7 +24,6 @@
         <activity android:name=".ImageActivity" />
         <activity android:name=".HostingMainActivity" />
         <activity android:name=".HostingActivity" />
-        <activity android:name=".ShowActivity" />
         <activity android:name=".ShowAdapterActivity" />
         <activity android:name=".ShowAdapter" />
         <activity android:name=".ShowActivity"></activity>
